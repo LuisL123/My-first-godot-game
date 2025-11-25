@@ -20,19 +20,20 @@ Game asset: https://trevor-pupkin.itch.io/tech-dungeon-roguelite
 - [ ] Add HP vars, `apply_damage()`, and death → `LoseScreen`
 - [x] Group player under `"player"`
 - [x] Add gun that rotates
-- [ ] Add reload animation
 
 ---
 
 ## 👾 Enemy
 - [x] Create `EnemyGrunt.tscn` (CharacterBody2D + Sprite + Collision)
-- [ ] Script: chase player → damage on contact
+- [x] Script: chase player → damage on contact & push in opposite direction
 - [x] Add `apply_damage()` + death animation or `queue_free()`
+- [ ] Fix bug where enemy matches player speed.
 
 ---
 
 ## ⚔️ Combat
 - [x] Ranged: spawn `Bullet.tscn` (Area2D) toward aim dir
+- [ ] Add an ammunition system: Limited bullets, enemies bullets.
 
 ---
 

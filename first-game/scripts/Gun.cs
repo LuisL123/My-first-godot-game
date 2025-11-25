@@ -36,7 +36,7 @@ public partial class Gun : Node2D
 		GetTree().CurrentScene.AddChild(bullet);
 		bullet.GlobalPosition = muzzle.GlobalPosition;
 		Vector2 mouse = GetGlobalMousePosition();
-		Vector2 dir = (mouse - muzzle.GlobalPosition);
+		Vector2 dir = mouse - muzzle.GlobalPosition;
 		bullet.Fire(dir);
 		// shooting cooldown to reduce rate of fire
 		can_shoot = false;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b454j0ehxc06y"]
+[gd_scene load_steps=19 format=3 uid="uid://b454j0ehxc06y"]
 
 [ext_resource type="Script" uid="uid://w43rn4n4h1s8" path="res://scripts/Player.cs" id="1_ru62r"]
 [ext_resource type="Texture2D" uid="uid://d3nc5vp25ce5g" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Players/players blue x1.png" id="2_ru62r"]
@@ -109,6 +109,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_15tap"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktjr4"]
+size = Vector2(10, 11)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ru62r")
 
@@ -123,4 +126,10 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_15tap")
 
 [node name="Gun" parent="." instance=ExtResource("3_ktjr4")]
-position = Vector2(-1.9999998, -6)
+position = Vector2(5, -5)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_ktjr4")

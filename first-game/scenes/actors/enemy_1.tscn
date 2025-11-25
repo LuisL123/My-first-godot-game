@@ -252,7 +252,7 @@ position = Vector2(1, 4)
 scale = Vector2(12, 12)
 shape = SubResource("CircleShape2D_r27f4")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, 4)

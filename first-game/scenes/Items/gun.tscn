@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxt2hfu776gn0"]
 
 [ext_resource type="Script" uid="uid://kvhmlx6s6dad" path="res://scripts/Gun.cs" id="1_f4fh2"]
-[ext_resource type="Texture2D" uid="uid://bxqmviy2s0xna" path="res://assets/Ranitayas Guns Pack (16+ pixelart guns)/MachineGuns/Outlined/6Machinegun06.png" id="1_r5qt1"]
+[ext_resource type="Texture2D" uid="uid://dfmna4dn0jqpo" path="res://assets/Ranitayas Guns Pack (16+ pixelart guns)/Smgs/Outlined/6smg06.png" id="2_f4fh2"]
 
 [node name="Gun" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_f4fh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -1)
-texture = ExtResource("1_r5qt1")
+position = Vector2(-2.2737368e-13, -1.4210855e-14)
+texture = ExtResource("2_f4fh2")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(29.5, -4)
+position = Vector2(14.5, -3)
 scale = Vector2(0.9974014, 1)
 
 [node name="Timer" type="Timer" parent="."]
