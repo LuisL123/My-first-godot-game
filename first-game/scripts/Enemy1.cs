@@ -22,6 +22,7 @@ public partial class Enemy1 : CharacterBody2D
 	private float speed = 50f;
 	private int health = 100;
 	private Area2D hitbox;
+	private Boolean dead = false;
 
 	public override void _Ready()
 	{
@@ -35,7 +36,7 @@ public partial class Enemy1 : CharacterBody2D
 
 	private async void OnBodyEntered(Node2D body)
 	{
-		if (!active && body.IsInGroup("player"))
+		if (!active && body.IsInGroup("player") && !dead)
 		{
 			player = body as CharacterBody2D;
 			sprite.Play("activate");
@@ -47,11 +48,11 @@ public partial class Enemy1 : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!active) return;
 		if (health <= 0) {
 			Die();
 			return;
 		}
-		if (!active) return;
 		// player following logic
 		var dir = (player.GlobalPosition - GlobalPosition).Normalized();
 		Velocity = dir * speed;
@@ -81,6 +82,7 @@ public partial class Enemy1 : CharacterBody2D
 
 	private async void Die()
 	{
+		dead = true;
 		active = false;
 		Velocity = Vector2.Zero;
 		sprite.Play("death");
