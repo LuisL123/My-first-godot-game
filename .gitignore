@@ -1,0 +1,13 @@
+# Godot specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# swap & temporary files
+*.tmp
+*.log
+*.tscn.converted

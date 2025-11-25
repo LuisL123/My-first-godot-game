@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://brxg4y27l2hgm"]
+
+[ext_resource type="Script" uid="uid://t8whi4lo0w5l" path="res://scripts/Bullet.cs" id="1_d01l7"]
+[ext_resource type="Texture2D" uid="uid://ykaf57dac1o" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Projectiles/projectiles x1.png" id="1_nnar4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d01l7"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg7g6"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd32x"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50q0l"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owaww"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6ib3"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxq82"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx8kv"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waa68"]
+atlas = ExtResource("1_nnar4")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owaww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg7g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd32x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50q0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owaww")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6ib3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxq82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx8kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waa68")
+}],
+"loop": false,
+"name": &"splash",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Area2D" groups=["Projectile"]]
+script = ExtResource("1_d01l7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_d01l7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Projectile"]]
+position = Vector2(5, 0)
+sprite_frames = SubResource("SpriteFrames_owaww")
+autoplay = "default"
+offset = Vector2(0, -1)
