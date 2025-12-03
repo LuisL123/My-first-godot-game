@@ -76,7 +76,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0w4p8")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -109,8 +109,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_15tap"]
 radius = 5.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktjr4"]
-size = Vector2(10, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktjr4"]
+radius = 6.0207973
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ru62r")
@@ -118,7 +118,7 @@ script = ExtResource("1_ru62r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ds2sr")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -131,5 +131,5 @@ position = Vector2(5, -5)
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -7.5)
-shape = SubResource("RectangleShape2D_ktjr4")
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ktjr4")

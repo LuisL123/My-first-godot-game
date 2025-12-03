@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://unx38b7wyg63"]
+[gd_scene load_steps=35 format=3 uid="uid://unx38b7wyg63"]
 
 [ext_resource type="Texture2D" uid="uid://chrkd4vgvmvgc" path="res://assets/Tech Dungeon Roguelite - Asset Pack (v7)/Enemies/enemies x1.png" id="1_4itl8"]
 [ext_resource type="Script" uid="uid://7r3l585d2mkr" path="res://scripts/Enemy1.cs" id="1_r27f4"]
@@ -227,11 +227,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4itl8"]
-size = Vector2(14, 18)
+[sub_resource type="CircleShape2D" id="CircleShape2D_w823v"]
+radius = 10.049875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r27f4"]
 radius = 7.1666665
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtrbi"]
+radius = 11.0
 
 [node name="enemy1" type="CharacterBody2D"]
 script = ExtResource("1_r27f4")
@@ -243,7 +246,7 @@ autoplay = "idle_inactive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)
-shape = SubResource("RectangleShape2D_4itl8")
+shape = SubResource("CircleShape2D_w823v")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
@@ -256,4 +259,4 @@ shape = SubResource("CircleShape2D_r27f4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, 4)
-shape = SubResource("RectangleShape2D_4itl8")
+shape = SubResource("CircleShape2D_mtrbi")

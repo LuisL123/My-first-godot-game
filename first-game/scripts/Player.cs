@@ -1,5 +1,8 @@
 using Godot;
 using System;
+using System.IO;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 public partial class Player : CharacterBody2D
 {
@@ -32,19 +35,26 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (health <= 0) {
+			Die();
+			return;
+		}
+
 		Vector2 velocity = Velocity;
 
 		if (isKnockedBack)
 		{
+			AnimatedSprite.SelfModulate = Colors.Red;
 			// Smoothly reduce knockback velocity toward zero
 			float t = knockbackDamp * (float)delta;
 			t = Mathf.Clamp(t, 0f, 1f);
 
 			_knockbackVelocity = _knockbackVelocity.Lerp(Vector2.Zero, t);
 
-			if (_knockbackVelocity.LengthSquared() < 1f)
+			if (_knockbackVelocity.LengthSquared() < 3f)
 			{
 				_knockbackVelocity = Vector2.Zero;
+				AnimatedSprite.SelfModulate = Colors.White;
 				isKnockedBack = false;
 			}
 
@@ -76,7 +86,7 @@ public partial class Player : CharacterBody2D
 	{
 		if (area.IsInGroup("Enemy"))
 		{
-			health -= 10;
+			health -= 20;
 			Knockback(area);
 		}
 	}
@@ -88,5 +98,13 @@ public partial class Player : CharacterBody2D
 		// IMPORTANT: set the knockback velocity, not Velocity directly
 		_knockbackVelocity = direction * knockbackStrength;
 		isKnockedBack = true;
+	}
+
+	private async void Die() 
+	{
+		Velocity = Vector2.Zero;
+		AnimatedSprite.Play("death");
+		await ToSignal(AnimatedSprite, AnimatedSprite2D.SignalName.AnimationFinished);
+		QueueFree();
 	}
 }

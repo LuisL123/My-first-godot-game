@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ce38d5b0f5689f34",
+        "id": "0902c1b90b5a885a",
         "type": "tabs",
         "children": [
           {
-            "id": "936ea3954461f655",
+            "id": "a0d1682d553bd22d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -169,8 +169,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "936ea3954461f655",
+  "active": "a0d1682d553bd22d",
   "lastOpenFiles": [
+    "first-game/scenes/actors/player.tscn-q8F11o",
+    "first-game/scenes.tscn-0eT2U2",
+    "first-game/scenes/actors/enemy_1.tscn-gaBk1z",
+    "first-game/scenes/actors/player.tscn-Xh6M8r",
+    "Untitled",
+    "Untitled.canvas",
+    "2025-11-29.md",
+    "Untitled.md",
+    "README.md",
+    "First Game Project Description.md",
     "first-game/scenes/actors/enemy_1.tscn-mKG5lK",
     "first-game/scenes/actors/enemy_1.tscn-KJJaZi",
     "first-game/scenes/actors/player.tscn-5W2a4z",
@@ -178,13 +188,7 @@
     "first-game/assets/32x32 Guns icon Sheet.png.import",
     "first-game/assets/32x32 Guns icon Sheet.png",
     "32x32 Guns icon Sheet.png",
-    "README.md",
     "first-game/scenes/actors/enemy_1.tscn-3FAZDw",
-    "first-game/scenes/Items/bullet.tscn-1wXFun",
-    "first-game/scenes/actors/enemy_1.tscn-yRDKhA",
-    "first-game/scenes/Items/bullet.tscn-InulNn",
-    "first-game/scenes/actors/player.tscn-OADbyJ",
-    "first-game/scripts/Gun.cs.uid",
     "first-game/assets/Ranitayas Guns Pack (16+ pixelart guns)/SniperRifles/Outlined/6SniperRifle06.png",
     "first-game/assets/Ranitayas Guns Pack (16+ pixelart guns)/SniperRifles/Outlined/4SniperRifle04.png",
     "first-game/assets/Ranitayas Guns Pack (16+ pixelart guns)/SniperRifles/6SniperRifle06.png",
@@ -194,7 +198,6 @@
     "first-game/assets/Ranitayas Guns Pack (16+ pixelart guns)/Smgs/6smg06.png",
     "first-game/assets/Ranitayas Guns Pack (16+ pixelart guns)/Smgs/4smg04.png",
     "create a link.md",
-    "First Game Project Description.md",
     "Welcome.md"
   ]
 }
