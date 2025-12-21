@@ -31,19 +31,39 @@ public partial class Enemy1 : CharacterBody2D
 		hitbox = GetNode<Area2D>("Hitbox");
 
 		detection_area.BodyEntered += OnBodyEntered;
+		detection_area.BodyExited += OnBodyExited;
 		hitbox.AreaEntered += TakeDamage;
+		SetPhysicsProcess(false);
 	}
 
 	private async void OnBodyEntered(Node2D body)
 	{
-		if (!active && body.IsInGroup("player") && !dead)
+		if (!active && body is Player player && !dead)
 		{
-			player = body as CharacterBody2D;
+			this.player = player;
+			player.TreeExited += OnPlayerExitTree;
 			sprite.Play("activate");
 			await ToSignal(sprite, AnimatedSprite2D.SignalName.AnimationFinished);
 			sprite.Play("idle_active");
 			active = true;
+			SetPhysicsProcess(true);
 		}
+	}
+
+	private void OnBodyExited(Node2D body)
+	{
+		if (body is not Player)
+			return;
+
+		player.TreeExited -= OnPlayerExitTree;
+		player = null;
+		SetPhysicsProcess(false);
+	}
+
+	private void OnPlayerExitTree()
+	{
+		player = null;
+		SetPhysicsProcess(false);
 	}
 
 	public override void _PhysicsProcess(double delta)
